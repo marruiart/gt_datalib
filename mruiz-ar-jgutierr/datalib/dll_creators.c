@@ -6,7 +6,7 @@
 /*   By: mruiz-ar <mruiz-ar@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:53:46 by antgalan          #+#    #+#             */
-/*   Updated: 2023/03/02 19:27:24 by mruiz-ar         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:27:46 by mruiz-ar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,28 @@ void	dll_add_last(t_dlist **list, t_dlist *elem)
 	}
 }
 
-t_dlist	*dll_replace(t_dlist **list, void *old, void *new)
+/**
+ * @brief   Replace the data of the given node.
+ *
+ * @param elem	Pointer to the node to be modified.
+ * @param data  The new data.
+ *
+ * @return  Pointer to the modified node;
+ * 			NULL otherwise.
+ */
+t_dlist	*dll_replace(t_dlist *elem, void *data)
 {
-	// TODO
+	t_dlist	*new;
+
+	new = dll_new(data);
+	if (!new)
+		return (NULL);
+	if (elem->prev)
+		elem->prev->next = new;
+	if (elem->next)
+		elem->next->prev = new;
+	new->prev = elem->prev;
+	new->next = elem->next;
+	free(elem);
+	return (new);
 }
