@@ -6,7 +6,7 @@
 /*   By: jgutierr <jgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:40:27 by antgalan          #+#    #+#             */
-/*   Updated: 2023/03/02 19:58:03 by jgutierr         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:58:23 by jgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,19 @@ int	stk_size(t_stack *stack)
 	return (size);
 }
 
+/**
+ * @brief	Checks the top element of the stack.
+ *
+ * @param stack	Pointer to the stack.
+ *
+ * @return 	Pointer to the top element;
+ * 			NULL if the stack is empty.
+ */
 t_stack	*stk_top(t_stack *stack)
 {
-	// TODO
+	if (stk_empty(stack))
+		return (NULL);
+	return (stack);
 }
 
 void	*stk_peek(t_stack *stack)
