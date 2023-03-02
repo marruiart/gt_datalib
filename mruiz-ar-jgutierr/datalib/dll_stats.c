@@ -6,7 +6,7 @@
 /*   By: mruiz-ar <mruiz-ar@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:53:46 by antgalan          #+#    #+#             */
-/*   Updated: 2023/03/02 19:32:16 by mruiz-ar         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:32:38 by mruiz-ar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,18 @@ int	dll_size(t_dlist *list)
 	return (i);
 }
 
+/**
+ * @brief   Returns the first node of the list.
+ *
+ * @param list	Pointer to an element of the list.
+ *
+ * @return	Pointer to the first node of the list.
+ */
 t_dlist	*dll_first(t_dlist *list)
 {
-	// TODO
+	while (list && list->prev)
+		list = list->prev;
+	return (list);
 }
 
 t_dlist	*dll_last(t_dlist *list)
