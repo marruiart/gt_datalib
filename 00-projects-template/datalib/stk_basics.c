@@ -6,7 +6,7 @@
 /*   By: jgutierr <jgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:40:27 by antgalan          #+#    #+#             */
-/*   Updated: 2023/03/02 19:56:41 by jgutierr         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:56:59 by jgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,24 @@ void	stk_push(t_stack **stack, void *data)
 	*stack = new;
 }
 
+/**
+ * @brief	Extracts the top element from the stack.
+ *
+ * @param stack	Pointer to the stack.
+ *
+ * @return 	Pointer to the top element;
+ * 			NULL if the stack is empty.
+ */
 t_stack	*stk_pop(t_stack **stack)
 {
-	// TODO
+	t_stack	*aux;
+
+	if (*stack == NULL)
+		return (NULL);
+	aux = *stack;
+	*stack = (*stack)->next;
+	aux->next = NULL;
+	return (aux);
 }
 
 void	stk_clear(t_stack **stack)
