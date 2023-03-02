@@ -6,7 +6,7 @@
 /*   By: mruiz-ar <mruiz-ar@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:53:46 by antgalan          #+#    #+#             */
-/*   Updated: 2023/03/02 19:30:24 by mruiz-ar         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:30:38 by mruiz-ar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,25 @@ void	dll_remove_last(t_dlist **list)
 	free(aux);
 }
 
+/**
+ * @brief	Removes all the nodes with the given data.
+ *
+ * @param list	Pointer to the first element of the list.
+ * @param data	Pointer to the data to be removed.
+ */
 void	dll_purge(t_dlist **list, void *data)
 {
-	// TODO
+	t_dlist	*aux;
+
+	if (dll_empty(*list))
+		return ;
+	aux = *list;
+	while (aux)
+	{
+		if (aux->data == data)
+			dll_remove(list, aux);
+		aux = aux->next;
+	}
 }
 
 void	dll_clear(t_dlist **list)
