@@ -12,9 +12,24 @@
 
 #include "datalib.h"
 
+/**
+ * @brief   Creates a new node with the given data.
+ *
+ * @param data  Pointer to the data to be stored in the node.
+ *
+ * @return  Pointer to the new node.
+ */
 t_dlist	*dll_new(void *data)
 {
-	// TODO
+	t_dlist	*new;
+
+	new = (t_dlist *) malloc(sizeof(t_dlist));
+	if (!new)
+		return (NULL);
+	new->data = data;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }
 
 void	dll_add_first(t_dlist **list, t_dlist *elem)
