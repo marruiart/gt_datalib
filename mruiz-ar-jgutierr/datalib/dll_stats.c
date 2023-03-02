@@ -6,7 +6,7 @@
 /*   By: mruiz-ar <mruiz-ar@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:53:46 by antgalan          #+#    #+#             */
-/*   Updated: 2023/03/02 19:33:00 by mruiz-ar         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:33:15 by mruiz-ar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,22 @@ t_dlist	*dll_last(t_dlist *list)
 	return (list);
 }
 
+/**
+ * @brief	Searches an element in the list.
+ *
+ * @param list	Pointer to the first element of the list.
+ * @param data	The data to search.
+ *
+ * @return	Pointer to the node containing the data;
+ * 			NULL if the data is not found.
+ */
 t_dlist	*dll_search(t_dlist *list, void *data)
 {
-	// TODO
+	while (list)
+	{
+		if (list->data == data)
+			return (list);
+		list = list->next;
+	}
+	return (NULL);
 }
