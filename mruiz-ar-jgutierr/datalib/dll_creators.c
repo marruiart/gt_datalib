@@ -6,7 +6,7 @@
 /*   By: mruiz-ar <mruiz-ar@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:53:46 by antgalan          #+#    #+#             */
-/*   Updated: 2023/03/02 19:25:37 by mruiz-ar         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:26:13 by mruiz-ar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,21 @@ void	dll_add_first(t_dlist **list, t_dlist *elem)
 	}
 }
 
+/**
+ * @brief   Adds a new node after the given node.
+ *
+ * @param list	Pointer to the first element of the list.
+ * @param data  Pointer to the data to be stored in the node.
+ */
 void	dll_add_after(t_dlist *elem, t_dlist *new)
 {
-	// TODO
+	if (dll_empty(elem) || dll_empty(new))
+		return ;
+	new->next = elem->next;
+	new->prev = elem;
+	if (elem->next)
+		elem->next->prev = new;
+	elem->next = new;
 }
 
 void	dll_add_last(t_dlist **list, t_dlist *elem)
