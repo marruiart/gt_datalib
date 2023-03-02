@@ -6,7 +6,7 @@
 /*   By: jgutierr <jgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:40:27 by antgalan          #+#    #+#             */
-/*   Updated: 2023/03/02 19:56:59 by jgutierr         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:57:17 by jgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,19 @@ t_stack	*stk_pop(t_stack **stack)
 	return (aux);
 }
 
+/**
+ * @brief	Deletes the stack.
+ *
+ * @param stack 	Pointer to the stack.
+ */
 void	stk_clear(t_stack **stack)
 {
-	// TODO
+	t_stack	*aux;
+
+	while (*stack != NULL)
+	{
+		aux = *stack;
+		*stack = (*stack)->next;
+		free(aux);
+	}
 }
