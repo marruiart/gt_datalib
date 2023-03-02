@@ -3,18 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   dll_deleters.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: mruiz-ar <mruiz-ar@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:53:46 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/23 11:56:17 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:29:44 by mruiz-ar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "datalib.h"
 
+/**
+ * @brief   Removes the first node of the list.
+ *
+ * @param list	Pointer to the first element of the list.
+ */
 void	dll_remove_first(t_dlist **list)
 {
-	// TODO
+	t_dlist	*aux;
+
+	if (dll_empty(*list))
+		return ;
+	aux = *list;
+	*list = (*list)->next;
+	if (*list)
+		(*list)->prev = NULL;
+	free(aux);
 }
 
 void	dll_remove(t_dlist **list, t_dlist *elem)
