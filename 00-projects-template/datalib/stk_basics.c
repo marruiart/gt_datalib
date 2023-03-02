@@ -6,7 +6,7 @@
 /*   By: jgutierr <jgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:40:27 by antgalan          #+#    #+#             */
-/*   Updated: 2023/03/02 19:56:07 by jgutierr         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:56:41 by jgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,21 @@ t_stack	*stk_new(void *data)
 	return (new);
 }
 
+/**
+ * @brief	Adds an element to the stack.
+ *
+ * @param stack	Pointer to the stack.
+ * @param data 	The data to store in the new element.
+ */
 void	stk_push(t_stack **stack, void *data)
 {
-	// TODO
+	t_stack	*new;
+
+	new = stk_new(data);
+	if (new == NULL)
+		return ;
+	new->next = *stack;
+	*stack = new;
 }
 
 t_stack	*stk_pop(t_stack **stack)
